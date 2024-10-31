@@ -20,8 +20,14 @@ public class LinearEquation {
         return y1 - slope * x1;
     }
     String equation() {
-
-        return ("y = " + slope() + "x + " + yIntercept());
+        if (x1 == x2) {
+            return "dummy";
+        } else if (y1 == y2) {
+            return ("y = " + yIntercept());
+        }
+        return ("y = " + (y2 - y1) + "/"  + (x2 - x1) + " " + "x + " + yIntercept());
     }
-
+    private double roundedToHundredth(double rounded) {
+        return Math.round(rounded * 100) / 100.0;
+    }
 }
